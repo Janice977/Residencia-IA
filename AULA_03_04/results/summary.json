@@ -1,1 +1,380 @@
-[]
+[
+  {
+    "document_id": "bioetica_e_ia",
+    "document_name": "bioetica_e_ia.pdf",
+    "experiments": [
+      {
+        "test_id": 1,
+        "strategy": "fixed",
+        "chunk_size": 200,
+        "chunk_overlap": 0,
+        "num_chunks": 257,
+        "avg_chunk_size": 198.93,
+        "min_chunk_size": 13,
+        "max_chunk_size": 200,
+        "stdev_chunk_size": 11.66,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 2,
+        "strategy": "fixed",
+        "chunk_size": 500,
+        "chunk_overlap": 0,
+        "num_chunks": 103,
+        "avg_chunk_size": 496.83,
+        "min_chunk_size": 213,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 28.25,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 3,
+        "strategy": "fixed",
+        "chunk_size": 1000,
+        "chunk_overlap": 0,
+        "num_chunks": 52,
+        "avg_chunk_size": 984.5,
+        "min_chunk_size": 213,
+        "max_chunk_size": 1000,
+        "stdev_chunk_size": 109.09,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 4,
+        "strategy": "fixed",
+        "chunk_size": 2000,
+        "chunk_overlap": 0,
+        "num_chunks": 26,
+        "avg_chunk_size": 1969.42,
+        "min_chunk_size": 1211,
+        "max_chunk_size": 2000,
+        "stdev_chunk_size": 154.69,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 5,
+        "strategy": "fixed_overlap",
+        "chunk_size": 500,
+        "chunk_overlap": 50,
+        "num_chunks": 114,
+        "avg_chunk_size": 498.49,
+        "min_chunk_size": 363,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 12.81,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 6,
+        "strategy": "fixed_overlap",
+        "chunk_size": 500,
+        "chunk_overlap": 200,
+        "num_chunks": 171,
+        "avg_chunk_size": 497.95,
+        "min_chunk_size": 213,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 21.93,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 7,
+        "strategy": "paragraph",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 135,
+        "avg_chunk_size": 377.37,
+        "min_chunk_size": 3,
+        "max_chunk_size": 4291,
+        "stdev_chunk_size": 473.02,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 8,
+        "strategy": "sentence_group",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 139,
+        "avg_chunk_size": 366.58,
+        "min_chunk_size": 38,
+        "max_chunk_size": 1088,
+        "stdev_chunk_size": 264.57,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 9,
+        "strategy": "recursive",
+        "chunk_size": 1000,
+        "chunk_overlap": 100,
+        "num_chunks": 73,
+        "avg_chunk_size": 704.84,
+        "min_chunk_size": 192,
+        "max_chunk_size": 995,
+        "stdev_chunk_size": 225.87,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 10,
+        "strategy": "markdown_headers",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 25,
+        "avg_chunk_size": 2049.76,
+        "min_chunk_size": 10,
+        "max_chunk_size": 8596,
+        "stdev_chunk_size": 2079.16,
+        "embedding_dimension": 384
+      }
+    ]
+  },
+  {
+    "document_id": "escrita_academica_ia",
+    "document_name": "escrita_academica_ia.pdf",
+    "experiments": [
+      {
+        "test_id": 1,
+        "strategy": "fixed",
+        "chunk_size": 200,
+        "chunk_overlap": 0,
+        "num_chunks": 212,
+        "avg_chunk_size": 196.92,
+        "min_chunk_size": 23,
+        "max_chunk_size": 200,
+        "stdev_chunk_size": 16.65,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 2,
+        "strategy": "fixed",
+        "chunk_size": 500,
+        "chunk_overlap": 0,
+        "num_chunks": 86,
+        "avg_chunk_size": 486.37,
+        "min_chunk_size": 63,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 60.85,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 3,
+        "strategy": "fixed",
+        "chunk_size": 1000,
+        "chunk_overlap": 0,
+        "num_chunks": 43,
+        "avg_chunk_size": 978.86,
+        "min_chunk_size": 563,
+        "max_chunk_size": 1000,
+        "stdev_chunk_size": 81.87,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 4,
+        "strategy": "fixed",
+        "chunk_size": 2000,
+        "chunk_overlap": 0,
+        "num_chunks": 22,
+        "avg_chunk_size": 1939.55,
+        "min_chunk_size": 678,
+        "max_chunk_size": 2000,
+        "stdev_chunk_size": 281.77,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 5,
+        "strategy": "fixed_overlap",
+        "chunk_size": 500,
+        "chunk_overlap": 50,
+        "num_chunks": 95,
+        "avg_chunk_size": 490.05,
+        "min_chunk_size": 156,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 45.25,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 6,
+        "strategy": "fixed_overlap",
+        "chunk_size": 500,
+        "chunk_overlap": 200,
+        "num_chunks": 142,
+        "avg_chunk_size": 492.89,
+        "min_chunk_size": 156,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 42.06,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 7,
+        "strategy": "paragraph",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 116,
+        "avg_chunk_size": 365.93,
+        "min_chunk_size": 2,
+        "max_chunk_size": 2674,
+        "stdev_chunk_size": 485.23,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 8,
+        "strategy": "sentence_group",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 99,
+        "avg_chunk_size": 425.97,
+        "min_chunk_size": 5,
+        "max_chunk_size": 1668,
+        "stdev_chunk_size": 259.65,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 9,
+        "strategy": "recursive",
+        "chunk_size": 1000,
+        "chunk_overlap": 100,
+        "num_chunks": 60,
+        "avg_chunk_size": 714.9,
+        "min_chunk_size": 141,
+        "max_chunk_size": 993,
+        "stdev_chunk_size": 219.32,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 10,
+        "strategy": "markdown_headers",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 20,
+        "avg_chunk_size": 2136.8,
+        "min_chunk_size": 16,
+        "max_chunk_size": 6175,
+        "stdev_chunk_size": 1924.15,
+        "embedding_dimension": 384
+      }
+    ]
+  },
+  {
+    "document_id": "twitter_algoritmo",
+    "document_name": "twitter_algoritmo.pdf",
+    "experiments": [
+      {
+        "test_id": 1,
+        "strategy": "fixed",
+        "chunk_size": 200,
+        "chunk_overlap": 0,
+        "num_chunks": 273,
+        "avg_chunk_size": 198.93,
+        "min_chunk_size": 40,
+        "max_chunk_size": 200,
+        "stdev_chunk_size": 9.68,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 2,
+        "strategy": "fixed",
+        "chunk_size": 500,
+        "chunk_overlap": 0,
+        "num_chunks": 109,
+        "avg_chunk_size": 498.92,
+        "min_chunk_size": 440,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 5.73,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 3,
+        "strategy": "fixed",
+        "chunk_size": 1000,
+        "chunk_overlap": 0,
+        "num_chunks": 55,
+        "avg_chunk_size": 989.31,
+        "min_chunk_size": 440,
+        "max_chunk_size": 1000,
+        "stdev_chunk_size": 75.44,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 4,
+        "strategy": "fixed",
+        "chunk_size": 2000,
+        "chunk_overlap": 0,
+        "num_chunks": 28,
+        "avg_chunk_size": 1943.68,
+        "min_chunk_size": 440,
+        "max_chunk_size": 2000,
+        "stdev_chunk_size": 294.69,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 5,
+        "strategy": "fixed_overlap",
+        "chunk_size": 500,
+        "chunk_overlap": 50,
+        "num_chunks": 121,
+        "avg_chunk_size": 499.13,
+        "min_chunk_size": 440,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 5.46,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 6,
+        "strategy": "fixed_overlap",
+        "chunk_size": 500,
+        "chunk_overlap": 200,
+        "num_chunks": 181,
+        "avg_chunk_size": 499.25,
+        "min_chunk_size": 440,
+        "max_chunk_size": 500,
+        "stdev_chunk_size": 4.48,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 7,
+        "strategy": "paragraph",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 196,
+        "avg_chunk_size": 275.77,
+        "min_chunk_size": 1,
+        "max_chunk_size": 1386,
+        "stdev_chunk_size": 317.9,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 8,
+        "strategy": "sentence_group",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 140,
+        "avg_chunk_size": 386.76,
+        "min_chunk_size": 15,
+        "max_chunk_size": 1049,
+        "stdev_chunk_size": 274.83,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 9,
+        "strategy": "recursive",
+        "chunk_size": 1000,
+        "chunk_overlap": 100,
+        "num_chunks": 78,
+        "avg_chunk_size": 707.94,
+        "min_chunk_size": 65,
+        "max_chunk_size": 996,
+        "stdev_chunk_size": 250.86,
+        "embedding_dimension": 384
+      },
+      {
+        "test_id": 10,
+        "strategy": "markdown_headers",
+        "chunk_size": null,
+        "chunk_overlap": 0,
+        "num_chunks": 22,
+        "avg_chunk_size": 2480.55,
+        "min_chunk_size": 73,
+        "max_chunk_size": 9877,
+        "stdev_chunk_size": 3176.8,
+        "embedding_dimension": 384
+      }
+    ]
+  }
+]

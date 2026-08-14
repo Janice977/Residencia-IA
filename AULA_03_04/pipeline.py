@@ -112,20 +112,31 @@ def carregar_markdowns_de_results(pasta_resultados: str) -> dict:
 
 
 def rodar_pipeline(markdowns: dict, pasta_resultados: str = "results") -> None:
+    if not markdowns:
+        print("Nenhum documento encontrado para processar — nada será alterado "
+              "(o summary.json existente, se houver, foi preservado).")
+        return
+
     print(f"Provedor de embeddings: {EMBEDDING_PROVIDER} | Modelo: {EMBEDDING_MODEL}")
     print(f"Documentos a processar: {list(markdowns.keys())}")
 
-    summary = []
+    caminho_summary = os.path.join(pasta_resultados, "summary.json")
+    summary_existente = {}
+    if os.path.exists(caminho_summary):
+        with open(caminho_summary, "r", encoding="utf-8") as f:
+            for doc in json.load(f):
+                summary_existente[doc["document_id"]] = doc
+
     for document_id, info in markdowns.items():
         resumo_doc = processar_documento(document_id, info["pdf_name"], info["texto"], pasta_resultados)
-        summary.append(resumo_doc)
+        summary_existente[document_id] = resumo_doc  # atualiza/insere, preserva os demais
 
-    caminho_summary = os.path.join(pasta_resultados, "summary.json")
+    summary_final = list(summary_existente.values())
     os.makedirs(pasta_resultados, exist_ok=True)
     with open(caminho_summary, "w", encoding="utf-8") as f:
-        json.dump(summary, f, ensure_ascii=False, indent=2)
+        json.dump(summary_final, f, ensure_ascii=False, indent=2)
 
-    print(f"\nResumo comparativo salvo em {caminho_summary}")
+    print(f"\nResumo comparativo salvo em {caminho_summary} ({len(summary_final)} documento(s) no total)")
 
 
 if __name__ == "__main__":

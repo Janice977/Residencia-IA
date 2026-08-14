@@ -1,0 +1,15 @@
+{
+    "page_content": "Os modelos de embeddings convertem palavras e frases em vetores numéricos de alta dimensão. Esses vetores capturam relações semânticas complexas entre os conceitos.",
+    "metadata": {
+        "fonte": "apostila_processamento_linguagem.md",
+        "documento_id": "doc_aula04_nlp_01",
+        "chunk_index": 0,
+        "estrategia": "recursive_character_text_splitter",
+        "chunk_size": 200,
+        "chunk_overlap": 20,
+        "n_caracteres": 168,
+        "secao_titulo": "1.1 Introdução aos Embeddings",
+        "idioma": "pt-BR",
+        "data_processamento": "2026-08-14"
+    }
+}

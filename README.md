@@ -1,2 +1,2 @@
-Aula 1# Residencia-IA
+ Residencia-IA
 Projetos residência IA

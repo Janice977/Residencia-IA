@@ -143,19 +143,68 @@ O Teste 1 (200 caracteres, sem overlap) — chunks pequenos demais, com muito co
 **15. Quais estratégias devem ser utilizadas nos próximos experimentos?**
 Recomenda-se aprofundar os Testes 9 (recursive) e 10 (markdown_headers) — inclusive testando uma variação híbrida: usar o Markdown Splitter primeiro (para respeitar seções) e, para seções muito grandes, aplicar o Recursive Splitter como segunda passada.
 
-## 6. Conclusão
+## 7. Fase 2 — Aplicação em todos os documentos (12 PDFs)
 
-Com base nos experimentos realizados nos 3 documentos da Fase 1, a estratégia
-recomendada para aplicar em todos os documentos da pasta do Google Drive
-(Fase 2) é o **Recursive Character Text Splitter (Teste 9)**, com
-`chunk_size=1000` e `chunk_overlap=100`, por oferecer o melhor equilíbrio
-entre tamanho controlado e preservação de contexto. Como estratégia
-complementar de comparação, o **Markdown Header Splitter (Teste 10)** também
-deve ser mantido, por preservar melhor a estrutura semântica dos documentos —
-útil especialmente se o sistema de RAG precisar recuperar seções inteiras
-(ex: "me mostre a seção de metodologia").
+Após a experimentação inicial (Fase 1, 3 documentos), as 10 estratégias foram
+aplicadas em **todos os 12 PDFs** da pasta do Google Drive, incluindo papers
+técnicos em inglês bem mais longos e ricos em tabelas/fórmulas
+(`attention_is_all_you_need.pdf`, `bert_pretraining.pdf`,
+`gpt3_language_models.pdf`, `gpt4_technical_report.pdf`, `instruct_gpt.pdf`,
+`llama_foundation_models.pdf`, `lora_low_rank_adaptation.pdf`,
+`retrieval_augmented_generation.pdf`, `scaling_laws_llm.pdf`), além dos 3
+documentos da Fase 1.
 
-*(Nota: esta é a análise da Fase 1, feita com os 3 documentos das aulas
-anteriores. Depois de rodar a Fase 2 com todos os PDFs da pasta do Drive,
-esta conclusão deve ser revisada para confirmar se o padrão se mantém em
-uma base de documentos maior e mais diversa.)*
+**Total**: 12 documentos × 10 testes = **120 experimentos**, com o `summary.json`
+e os JSONs individuais de cada teste disponíveis em `results/`.
+
+### Médias agregadas entre os 12 documentos
+
+| Teste | Estratégia | Média de chunks/doc | Média do tamanho de chunk |
+|---|---|---|---|
+| 1 | fixed (200) | 606.6 | 194.1 |
+| 2 | fixed (500) | 247.4 | 487.2 |
+| 3 | fixed (1000) | 124.4 | 979.9 |
+| 4 | fixed (2000) | 62.4 | 1962.8 |
+| 5 | fixed_overlap (500/50) | 274.9 | 488.0 |
+| 6 | fixed_overlap (500/200) | 411.8 | 488.4 |
+| 7 | paragraph | 334.8 | 382.3 |
+| 8 | sentence_group | 342.9 | 360.4 |
+| 9 | recursive | 170.4 | 729.6 |
+| 10 | markdown_headers | 58.9 | 2326.2 |
+
+A tendência observada na Fase 1 **se confirmou** numa base 4x maior e mais
+diversa: o Teste 1 (fixed 200) continua gerando o maior número de chunks, e o
+Teste 10 (markdown_headers) continua gerando os chunks maiores e em menor
+quantidade.
+
+### Achado novo sobre tabelas (papers técnicos)
+
+Os papers técnicos em inglês contêm muito mais tabelas que os documentos da
+Fase 1 — por exemplo, `gpt4_technical_report.pdf` tem 197 linhas de tabela
+markdown (contra praticamente zero nos 3 documentos originais). Isso reforça
+o risco identificado na Fase 1: as estratégias de tamanho fixo (Testes 1–6)
+têm chance bem maior de **cortar uma tabela no meio** nesses documentos,
+enquanto o Recursive Splitter (Teste 9) e o Markdown Splitter (Teste 10)
+preservam melhor esse tipo de conteúdo.
+
+## 8. Conclusão final
+
+Com os dados da Fase 1 (3 documentos) e da Fase 2 (12 documentos, incluindo
+papers técnicos densos em tabelas e fórmulas), a recomendação se mantém e fica
+mais robusta:
+
+- **Estratégia principal recomendada para o pipeline de RAG**: **Recursive
+  Character Text Splitter (Teste 9)**, `chunk_size=1000`, `chunk_overlap=100`.
+  Motivo: mantém tamanho controlado e previsível (bom para custo e limite de
+  contexto do modelo de embedding), evita cortar frases/tabelas no meio na
+  maioria dos casos, e seu comportamento foi consistente tanto nos documentos
+  curtos (artigos em português) quanto nos longos (papers técnicos em inglês).
+- **Estratégia complementar**: **Markdown Header Splitter (Teste 10)**, útil
+  quando o sistema de RAG precisa recuperar **seções inteiras** (ex.: "me
+  mostre a seção de resultados experimentais"), mas exige cuidado adicional
+  porque algumas seções ultrapassam 8000–9000 caracteres — nesses casos, uma
+  segunda passada com o Recursive Splitter dentro de cada seção grande seria
+  o ideal (estratégia híbrida).
+- **Estratégias descartadas**: Teste 1 (fixed 200) — gera chunks pequenos
+  demais e corta palavras/frases com frequência, prejudicando a qualidade da
+  representação semântica sem ganho real de precisão na recuperação.
